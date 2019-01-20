@@ -23,3 +23,17 @@ lines(density(state[["Murder.Rate"]]), lwd=3, col="blue")
 lines(density(state$Murder.Rate),lwd=3,col="red")
 dfw<-read.csv("C:\\Users\\ashwi\\Desktop\\Ashwin\\PS_DS\\psds_data\\airline_delay_causes.csv")
 barplot(as.matrix(dfw)/6, cex.axis=.5)
+sp500_px <- read.csv('C:\\Users\\ashwi\\Desktop\\Ashwin\\PS_DS\\psds_data\\sp500_px.csv')
+sp500_sym <- read.csv('C:\\Users\\ashwi\\Desktop\\Ashwin\\PS_DS\\psds_data\\sp500_sym.csv', stringsAsFactors = FALSE)
+etfs <- sp500_px[row.names(sp500_px)>"2012-07-01",sp500_sym[sp500_sym$sector=="etf", 'symbol']]
+install.packages("corrplot")
+library(corrplot)
+corrplot(cor(etfs), method = "ellipse")
+x<-sp500_sym[sp500_sym$sector=="telecommunications_services", 'symbol']
+x
+telecom <- sp500_px[sp500_sym[sp500_sym$sector=="telecommunications_services", 'symbol']]
+telecom
+telecom <- telecom[row.names(telecom)>"2012-07-01", ]
+telecom_cor <- cor(telecom)
+telecom_cor
+
