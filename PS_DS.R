@@ -34,6 +34,10 @@ x
 telecom <- sp500_px[sp500_sym[sp500_sym$sector=="telecommunications_services", 'symbol']]
 telecom
 telecom <- telecom[row.names(telecom)>"2012-07-01", ]
+telecom
 telecom_cor <- cor(telecom)
 telecom_cor
-
+plot(telecom$T, telecom$VZ, xlab="T", ylab="VZ")
+kc_tax <- read.csv('C:\\Users\\ashwi\\Desktop\\Ashwin\\PS_DS\\psds_data\\kc_tax.csv')
+lc_loans <- read.csv('C:\\Users\\ashwi\\Desktop\\Ashwin\\PS_DS\\psds_data\\lc_loans.csv')
+airline_stats <- read.csv('C:\\Users\\ashwi\\Desktop\\Ashwin\\PS_DS\\psds_data\\airline_stats.csv', stringsAsFactors = FALSE)
